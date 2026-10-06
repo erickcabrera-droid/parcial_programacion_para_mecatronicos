@@ -1,11 +1,12 @@
-/*
- * Reto 13 - Residuos: carga superior al promedio diario
- * Autor: Erick Cabrera | Matricula: 20252338
- *
- * Un evento ocurre en (i,j) si N*x - SC >= N*L && x >= U,
- * donde x = valor, SC = suma de su columna, N = numero de filas.
- * Impacto del evento: N*x - SC + 1 (los no eventos aportan 0).
- */
+/***********************************************************/
+/*           Programación para mecatrónicos               */
+/*  Nombre:    Erick Cabrera                                  */
+/*  Matricula: 2025-2338                                               */
+/*  Seccion:   Miercoles                                              */
+/*  Practica:  Primer parcial C3-2026 Miercoles                                     */
+/*  Fecha:     05/10/2026                                              */                       
+/* Link Practica: https://github.com/erickcabrera-droid/parcial_programacion_para_mecatronicos          */
+/***********************************************************/
 #include <stdio.h>
 
 int main(void)
