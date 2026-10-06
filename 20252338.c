@@ -4,9 +4,9 @@
 /*  Matricula: 2025-2338                                               */
 /*  Seccion:   Miercoles                                              */
 /*  Practica:  Primer parcial C3-2026 Miercoles                                     */
-/*  Fecha:     05/10/2026                                              */                       
-/* Link Practica: https://github.com/erickcabrera-droid/parcial_programacion_para_mecatronicos          */
-/***********************************************************/
+/*  Fecha:     05/10/2026**********************************************************************/                       
+/* Link Practica: https://github.com/erickcabrera-droid/parcial_programacion_para_mecatronicos*/
+/*********************************************************************************************/
 #include <stdio.h>
 /**
  * @brief Función principal: lee la matriz de residuos, detecta eventos
