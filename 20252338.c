@@ -8,7 +8,17 @@
 /* Link Practica: https://github.com/erickcabrera-droid/parcial_programacion_para_mecatronicos          */
 /***********************************************************/
 #include <stdio.h>
-
+/**
+ * @brief Función principal: lee la matriz de residuos, detecta eventos
+ *        (valores sobre el promedio de su columna), calcula impactos,
+ *        rachas y resúmenes, e imprime el informe.
+ *
+ * @param[in] ninguno (los datos se leen por consola con scanf).
+ *
+ * @return 0 al terminar (también cuando imprime ERROR por datos inválidos).
+ *
+ * @ Pass/ Fail criteria: none.
+ */
 int main(void)
 {
     int N, M, L, U;
