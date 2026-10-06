@@ -1,17 +1,26 @@
+/*
+ * Reto 13 - Residuos: carga superior al promedio diario
+ * Autor: Erick Cabrera | Matricula: 20252338
+ *
+ * Un evento ocurre en (i,j) si N*x - SC >= N*L && x >= U,
+ * donde x = valor, SC = suma de su columna, N = numero de filas.
+ * Impacto del evento: N*x - SC + 1 (los no eventos aportan 0).
+ */
 #include <stdio.h>
 
 int main(void)
 {
     int N, M, L, U;
     int mat[30][30];
-    long sumaCol[30];
-    int cantCol[30];
-    int eventos[30];
-    long impacto[30];
-    int racha[30];
-    int inicio[30];
+    long sumaCol[30];      /* SC de cada columna */
+    int cantCol[30];       /* eventos por columna */
+    int eventos[30];       /* eventos por fila */
+    long impacto[30];      /* impacto total por fila */
+    int racha[30];         /* mayor racha por fila */
+    int inicio[30];        /* inicio (base 1) de la mayor racha */
     int i, j;
 
+    /* Lectura y validacion de dimensiones y limites antes de leer la matriz */
     if (scanf("%d %d %d %d", &N, &M, &L, &U) != 4) {
         printf("ERROR\n");
         return 0;
@@ -22,6 +31,7 @@ int main(void)
         return 0;
     }
 
+    /* Lectura y validacion de la matriz; calculo de SC por columna */
     for (j = 0; j < M; j++) {
         sumaCol[j] = 0;
         cantCol[j] = 0;
@@ -37,6 +47,7 @@ int main(void)
         }
     }
 
+    /* Eventos, impactos y rachas por fila */
     for (i = 0; i < N; i++) {
         int rachaActual = 0, inicioActual = 0;
         eventos[i] = 0;
@@ -52,6 +63,7 @@ int main(void)
                 if (rachaActual == 0)
                     inicioActual = j + 1;
                 rachaActual++;
+                /* '>' estricto: ante empate se conserva la racha que empieza antes */
                 if (rachaActual > racha[i]) {
                     racha[i] = rachaActual;
                     inicio[i] = inicioActual;
@@ -62,6 +74,7 @@ int main(void)
         }
     }
 
+    /* Fila prioritaria: racha, impacto, eventos, menor numero de fila */
     int filaP = 0;
     int hayEventos = 0;
     for (i = 0; i < N; i++) {
@@ -80,6 +93,7 @@ int main(void)
         }
     }
 
+    /* Columna destacada: mas eventos, en empate la menor */
     int colD = 0;
     if (hayEventos) {
         colD = 1;
@@ -89,6 +103,7 @@ int main(void)
         }
     }
 
+    /* Salida */
     for (i = 0; i < N; i++) {
         printf("FILA %d EVENTOS %d IMPACTO %ld RACHA %d INICIO %d\n",
                i + 1, eventos[i], impacto[i], racha[i], inicio[i]);
